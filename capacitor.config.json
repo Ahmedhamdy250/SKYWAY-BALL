@@ -1,0 +1,8 @@
+{
+  "appId": "com.ahmedhamdy.skywayball",
+  "appName": "SKYWAY BALL",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#8fd3f6"
+  }
+}

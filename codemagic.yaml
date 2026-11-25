@@ -1,0 +1,25 @@
+workflows:
+  android-apk:
+    name: SKYWAY BALL - Android APK
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      node: 20
+      java: 17
+    scripts:
+      - name: Install dependencies
+        script: npm ci
+      - name: Build game files (www/)
+        script: npm run build
+      - name: Copy game into the Android project
+        script: npx cap sync android
+      - name: Point Gradle at the Android SDK
+        script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Build APK
+        script: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+          cp app/build/outputs/apk/debug/app-debug.apk "$CM_BUILD_DIR/SKYWAY-BALL.apk"
+    artifacts:
+      - SKYWAY-BALL.apk

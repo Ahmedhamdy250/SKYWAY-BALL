@@ -31,3 +31,21 @@ python3 -m http.server 8000
 
 ## النشر على GitHub Pages
 من إعدادات المستودع: Settings → Pages → Source: `main` / root.
+
+## تطبيق أندرويد (Codemagic)
+اللعبة مغلّفة كتطبيق أندرويد باستخدام [Capacitor](https://capacitorjs.com/)، وتُبنى تلقائيًا على Codemagic عبر الملف `codemagic.yaml`.
+
+1. سجّل الدخول إلى https://codemagic.io بحساب GitHub وأضف هذا المستودع.
+2. اختر الإعداد من `codemagic.yaml` ثم شغّل الـ workflow المسمى **SKYWAY BALL - Android APK**.
+3. بعد انتهاء البناء، حمّل الملف `SKYWAY-BALL.apk` من قسم Artifacts وثبّته على هاتفك.
+
+### البناء محليًا
+```bash
+npm install
+npm run build
+npx cap sync android
+cd android && ./gradlew assembleDebug
+```
+
+- `index.html` هو مصدر اللعبة، و`npm run build` ينسخه إلى `www/` مع نسخة محلية من Three.js ليعمل التطبيق بدون إنترنت.
+- أيقونة التطبيق وشاشة البداية في `assets/`، ولإعادة توليدها: `npx @capacitor/assets generate --android`

@@ -1,0 +1,18 @@
+{
+  "name": "skyway-ball",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SKYWAY BALL - 3D ball rolling game",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "6.2.1",
+    "@capacitor/core": "6.2.1",
+    "three": "0.128.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "6.2.1"
+  }
+}

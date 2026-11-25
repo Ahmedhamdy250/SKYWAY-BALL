@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>دحرجه - D7RAGA</title>
+<title>SKYWAY BALL</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,7 +83,7 @@ html,body{height:100%;margin:0;overflow:hidden;background:var(--sky);color:var(-
 
 <div class="overlay" id="menu">
   <div class="card">
-    <h1>دحرجه <span>D7RAGA</span></h1>
+    <h1 dir="ltr">SKYWAY <span>BALL</span></h1>
     <p>وجّه الكرة على المسار المعلّق فوق الجزر. اجمع النجوم الذهبية وتفادَ المكعبات، والسرعة تزداد كلما تقدّمت.</p>
     <div class="legend">
       <div><span class="coin" style="width:20px;height:20px"></span>نجمة: +10 نقاط</div>
@@ -518,7 +518,7 @@ function tone(f0, f1, dur, type='sine', vol=0.12){
 let state = 'menu', s, u, targetU, speed, boostT, coins, time = 0, camH = 0, keyDir = 0;
 let baseFov = 62;
 let fallV = new THREE.Vector3(), endT = 0, shake = 0, endReason = '';
-let best = 0; try { best = +localStorage.getItem('d7ragaBest') || 0; } catch(e){}
+let best = 0; try { best = +localStorage.getItem('skywayBallBest') || 0; } catch(e){}
 $('bestMenu').textContent = best;
 
 function resetWorld(){
@@ -562,7 +562,7 @@ function showOver(){
   state = 'over';
   const dist = Math.floor(s - 4), score = dist + coins*10;
   const isBest = score > best;
-  if(isBest){ best = score; try { localStorage.setItem('d7ragaBest', best); } catch(e){} }
+  if(isBest){ best = score; try { localStorage.setItem('skywayBallBest', best); } catch(e){} }
   $('overTitle').textContent = endReason === 'crash' ? 'اصطدمت!' : 'سقطت الكرة!';
   $('oDist').textContent = dist; $('oCoins').textContent = coins; $('oScore').textContent = score;
   $('bestOver').textContent = best; $('bestMenu').textContent = best;
